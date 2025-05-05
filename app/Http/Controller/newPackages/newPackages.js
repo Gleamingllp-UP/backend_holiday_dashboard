@@ -1613,6 +1613,7 @@ newPackages_obj.newpackageSearchFilter = async (req, res) => {
     }
 
     pipeline.push({ $skip: skip });
+    pipeline.push({ $sort: { createdAt: -1 } });
     pipeline.push({ $limit: limitNumber });
 
     const [searchFilterData, totalPackagesData] = await Promise.all([
